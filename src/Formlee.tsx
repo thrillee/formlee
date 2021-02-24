@@ -15,7 +15,7 @@ interface Props {
 	setIsSubmitted: React.Dispatch<React.SetStateAction<Boolean>>;
 }
 
-const Formly: React.FC<Props> = ({
+const Formlee: React.FC<Props> = ({
 	formData,
 	onSubmit,
 	isSubmitted,
@@ -52,4 +52,4 @@ const Formly: React.FC<Props> = ({
 	);
 };
 
-export default Formly;
+export default Formlee;
