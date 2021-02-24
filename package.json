@@ -1,0 +1,37 @@
+{
+	"name": "formly",
+	"version": "1.0.0",
+	"description": "Create React and React Native Forms with Joy.",
+	"main": "lib/index.js",
+	"scripts": {
+		"build": "rm -rf ./lib && tsc",
+		"prepare": "yarn build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thrillee/formly.git"
+	},
+	"keywords": [
+		"React",
+		"Typescript",
+		"Form",
+		"React",
+		"Native",
+		"Javascript"
+	],
+	"author": "Oluwatobi Bello",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/thrillee/formly/issues"
+	},
+	"homepage": "https://github.com/thrillee/formly#readme",
+	"devDependencies": {
+		"@types/react": "^17.0.2",
+		"@types/react-dom": "^17.0.1",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"typescript": "^4.1.5",
+		"tslib": "^2.1.0"
+	},
+	"dependencies": {}
+}
