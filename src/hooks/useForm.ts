@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Value } from '../configs/formConfigs';
+import { Value } from '../types/formConfigs';
 
 export const useForm = (data: Value) => {
 	const formRef: React.MutableRefObject<boolean | undefined> = React.useRef();
@@ -20,11 +20,9 @@ export const useForm = (data: Value) => {
 			const value = e.target.value;
 			const name = e.target.name;
 
-			if (targetType === 'checkbox') {
-				newState[name] = e.target.checked;
-			} else {
-				newState[name] = value;
-			}
+			newState[name] =
+				targetType === 'checkbox' ? (newState[name] = e.target.checked) : value;
+
 			setValues(newState);
 		}
 	};

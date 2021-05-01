@@ -4,7 +4,7 @@ import {
 	FormField,
 	Error,
 	FormDependency,
-} from '../configs/formConfigs';
+} from '../types/formConfigs';
 
 interface Constraint {
 	[key: string]: {
@@ -35,18 +35,20 @@ export const useValidator = (fields: FormField[], values: any) => {
 			const newErrors: Error = { ...errors };
 
 			constraintKey.forEach((c) => {
-				let value = values[c];
-				let cData = constraintData[c];
-				let validator = cData.validator;
+				const value = values[c];
+				const cData = constraintData[c];
+				const validatorFunc = cData.validator;
 
-				let notValid = undefined;
-				if (validator !== undefined) {
+				let notValid;
+				if (validatorFunc !== undefined) {
 					if (
 						(cData.dependent &&
 							cData.dependent.value === values[cData.dependent.fieldName]) ||
 						cData.dependent === undefined
 					) {
-						notValid = cData.isCustom ? validator(values) : validator(value);
+						notValid = cData.isCustom
+							? validatorFunc(values)
+							: validatorFunc(value);
 					}
 				}
 
@@ -60,6 +62,7 @@ export const useValidator = (fields: FormField[], values: any) => {
 			setError(newErrors);
 			return isValid;
 		}
+		return undefined;
 	};
 	return { errors, validate };
 };

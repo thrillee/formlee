@@ -50,9 +50,9 @@ export const isFloat = (n: any) => {
 };
 
 export const isNumeric = (n: any) => {
-	const number = Number(n);
+	const num = Number(n);
 	let error;
-	const valid = !isNaN(number) && (isInt(number) || isFloat(number));
+	const valid = !isNaN(num) && (isInt(num) || isFloat(num));
 	if (!valid || n === null) {
 		error = 'Value must be a number';
 	}
@@ -60,32 +60,35 @@ export const isNumeric = (n: any) => {
 };
 
 export const required = (value: any) => {
-	let error = 'This Field is required';
+	const error = 'This Field is required';
 	if (!value || value.length < 1) {
 		return error;
 	}
+	return undefined;
 };
 
 export const customLengthValidate = (value: string, length: number) => {
-	let error = `This field value should not be more than ${length} characters.`;
+	const error = `This field value should not be more than ${length} characters.`;
 	if (!value || value.length > length) {
 		return error;
 	}
+	return undefined;
 };
 
 export const validateUrl = (url: string) => {
-	let error = `Please enter a valid url.`;
+	const error = `Please enter a valid url.`;
 	const expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 	const regex = new RegExp(expression);
 	if (!url.match(regex)) {
 		return error;
 	}
+	return undefined;
 };
 
 export const customRegexValidate = (regex: any, value: any) => {
 	let error;
 
-	if (!/^\w{1,10}$/.test(value)) {
+	if (regex.test(value)) {
 		error = 'Invalid Value. Please Enter the Correct Value.';
 	}
 

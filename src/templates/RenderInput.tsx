@@ -4,9 +4,9 @@ import {
 	Error,
 	FormData,
 	InputTemplateProps,
-} from '../configs/formConfigs';
-import { InputFieldProps } from '../configs/formConfigs';
-import { dependenciesIsnotValid } from '../configs/utils';
+} from '../types/formConfigs';
+import { InputFieldProps } from '../types/formConfigs';
+import { dependenciesIsnotValid } from '../types/utils';
 
 interface FormProp {
 	formData: FormData;

@@ -4,18 +4,18 @@ import RenderInput from './templates/RenderInput';
 
 import { useForm } from './hooks/useForm';
 import { useValidator } from './hooks/useValidator';
-import { FormData, InputTemplateProps, Value } from './configs/formConfigs';
+import { FormData, InputTemplateProps, Value } from './types/formConfigs';
 
 interface Props {
 	formData: FormData;
-	isSubmitted: Boolean;
+	isSubmitted: boolean;
 	defaultValues: Value;
 	onSubmit: (result: any) => void;
 	inputTemplates: InputTemplateProps;
-	setIsSubmitted: React.Dispatch<React.SetStateAction<Boolean>>;
+	setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Formlee: React.FC<Props> = ({
+export const Formlee: React.FC<Props> = ({
 	formData,
 	onSubmit,
 	isSubmitted,
@@ -51,5 +51,3 @@ const Formlee: React.FC<Props> = ({
 		</>
 	);
 };
-
-export default Formlee;
