@@ -1,6 +1,6 @@
 {
     "name": "formlee",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "description": "Create React and React Native Forms with Joy.",
     "typings": "lib/index.d.ts",
     "main": "lib/index.js",
