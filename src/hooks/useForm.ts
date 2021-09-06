@@ -14,7 +14,7 @@ export const useForm = (data: Value) => {
 
 	const memoizedCallback = React.useCallback(() => {
 		if (formRef.current && JSON.stringify(values) !== JSON.stringify(data)) {
-			setValues(data);
+			setValues(data ?? {});
 		}
 	}, [data]);
 
