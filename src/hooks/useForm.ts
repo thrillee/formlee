@@ -3,7 +3,7 @@ import { Value } from '../types/formConfigs';
 
 export const useForm = (data: Value) => {
 	const formRef: React.MutableRefObject<boolean | undefined> = React.useRef();
-	const [values, setValues] = React.useState<Value>({ ...data });
+	const [values, setValues] = React.useState<Value>(data);
 
 	React.useEffect(() => {
 		formRef.current = true;
@@ -12,10 +12,14 @@ export const useForm = (data: Value) => {
 		};
 	}, []);
 
-	React.useEffect(() => {
+	const memoizedCallback = React.useCallback(() => {
 		if (formRef.current && JSON.stringify(values) !== JSON.stringify(data)) {
 			setValues(data);
 		}
+	}, [data]);
+
+	React.useEffect(() => {
+		memoizedCallback();
 	}, [data]);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
