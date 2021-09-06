@@ -6,7 +6,7 @@
     "main": "lib/index.js",
     "scripts": {
         "build": "rm -rf ./lib && tsc",
-        "pre": "rm -rf ./lb && tsc && npm version patch"
+        "pre": "rm -rf ./lib && tsc && npm version patch"
     },
     "repository": {
         "type": "git",
