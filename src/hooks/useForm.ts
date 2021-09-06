@@ -12,18 +12,6 @@ export const useForm = (data: Value) => {
 		};
 	}, []);
 
-	const memoizedCallback = React.useCallback(() => {
-		if (formRef.current && JSON.stringify(values) !== JSON.stringify(data)) {
-			setValues(data ?? {});
-		}
-	}, [data]);
-
-	React.useEffect(() => {
-		memoizedCallback();
-		// tslint:disable-next-line: no-console
-		console.log('Change', values, data);
-	}, [data]);
-
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (formRef.current) {
 			const newState = { ...values };
@@ -39,5 +27,9 @@ export const useForm = (data: Value) => {
 		}
 	};
 
-	return { values, handleChange };
+	const updateValues = React.useCallback((value: Value) => {
+		setValues(value);
+	}, []);
+
+	return { values, updateValues, handleChange };
 };
