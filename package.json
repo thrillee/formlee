@@ -1,44 +1,44 @@
 {
-	"name": "formlee",
-	"version": "1.0.10",
-	"description": "Create React and React Native Forms with Joy.",
-	"typings": "lib/index.d.ts",
-	"main": "lib/index.js",
-	"scripts": {
-		"build": "rm -rf ./lib && tsc",
-		"pre": "rm -rf ./lb && tsc && npm version patch"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/thrillee/formlee.git"
-	},
-	"keywords": [
-		"React",
-		"Typescript",
-		"Form",
-		"React",
-		"Native",
-		"Javascript"
-	],
-	"files": [
-		"lib"
-	],
-	"author": "Oluwatobi Bello",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/thrillee/formlee/issues"
-	},
-	"homepage": "https://github.com/thrillee/formlee#readme",
-	"dependencies": {},
-	"devDependencies": {
-		"@types/react": "^17.0.2",
-		"@types/react-dom": "^17.0.1",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"tslib": "^2.1.0",
-		"tslint": "^6.1.3",
-		"tslint-config-prettier": "^1.18.0",
-		"tslint-react": "^5.0.0",
-		"typescript": "^4.1.5"
-	}
+    "name": "formlee",
+    "version": "1.0.14",
+    "description": "Create React and React Native Forms with Joy.",
+    "typings": "lib/index.d.ts",
+    "main": "lib/index.js",
+    "scripts": {
+        "build": "rm -rf ./lib && tsc",
+        "pre": "rm -rf ./lb && tsc && npm version patch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thrillee/formlee.git"
+    },
+    "keywords": [
+        "React",
+        "Typescript",
+        "Form",
+        "React",
+        "Native",
+        "Javascript"
+    ],
+    "files": [
+        "lib"
+    ],
+    "author": "Oluwatobi Bello",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thrillee/formlee/issues"
+    },
+    "homepage": "https://github.com/thrillee/formlee#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/react": "^17.0.2",
+        "@types/react-dom": "^17.0.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "tslib": "^2.1.0",
+        "tslint": "^6.1.3",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-react": "^5.0.0",
+        "typescript": "^4.1.5"
+    }
 }

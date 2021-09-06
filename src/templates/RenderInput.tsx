@@ -3,9 +3,9 @@ import {
 	Value,
 	Error,
 	FormData,
+	InputFieldProps,
 	InputTemplateProps,
 } from '../types/formConfigs';
-import { InputFieldProps } from '../types/formConfigs';
 import { dependenciesIsnotValid } from '../types/utils';
 
 interface FormProp {
@@ -30,7 +30,7 @@ const RenderInput: React.FC<FormProp> = ({
 
 	return (
 		<>
-			{formData.fields.map((data, key) => {
+			{formData.fields.map((data) => {
 				if (
 					data.dependent &&
 					dependenciesIsnotValid(
@@ -41,7 +41,7 @@ const RenderInput: React.FC<FormProp> = ({
 					return null;
 				}
 				return getInputTemplate({
-					key,
+					key: data.name,
 					onChange: handleChange,
 					value: data.notEditable ? data.defaultValue : values[data.name],
 					error: errors[data.name],

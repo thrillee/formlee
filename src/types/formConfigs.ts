@@ -13,7 +13,7 @@ export type ValidatorResult = {
 };
 
 export type InputFieldProps = {
-	key: number;
+	key: any;
 	value: any;
 	fieldData: FormField;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

@@ -12,6 +12,12 @@ export const useForm = (data: Value) => {
 		};
 	}, []);
 
+	React.useEffect(() => {
+		if (formRef.current) {
+			setValues(data);
+		}
+	}, [data]);
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (formRef.current) {
 			const newState = { ...values };
