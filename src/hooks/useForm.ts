@@ -20,6 +20,8 @@ export const useForm = (data: Value) => {
 
 	React.useEffect(() => {
 		memoizedCallback();
+		// tslint:disable-next-line: no-console
+		console.log('Change', values, data);
 	}, [data]);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

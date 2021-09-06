@@ -23,7 +23,7 @@ export const Formlee: React.FC<Props> = ({
 	setIsSubmitted,
 	inputTemplates,
 }) => {
-	const { values, handleChange } = useForm({ ...defaultValues });
+	const { values, handleChange } = useForm(defaultValues);
 	const { errors, validate } = useValidator(formData.fields, values);
 
 	const handleSubmit = React.useCallback(() => {
