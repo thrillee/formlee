@@ -13,7 +13,7 @@ export const useForm = (data: Value) => {
 	}, []);
 
 	React.useEffect(() => {
-		if (formRef.current) {
+		if (formRef.current && JSON.stringify(values) !== JSON.stringify(data)) {
 			setValues(data);
 		}
 	}, [data]);
