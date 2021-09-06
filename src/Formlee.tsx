@@ -32,7 +32,7 @@ export const Formlee: React.FC<Props> = ({
 	}, [onSubmit, values, validate, setIsSubmitted]);
 
 	React.useEffect(() => {
-		updateValues(defaultValues);
+		updateValues(defaultValues ?? {});
 	}, [defaultValues]);
 
 	React.useEffect(() => {
