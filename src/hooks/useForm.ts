@@ -3,7 +3,7 @@ import { Value } from '../types/formConfigs';
 
 export const useForm = (data: Value) => {
 	const formRef: React.MutableRefObject<boolean | undefined> = React.useRef();
-	const [values, setValues] = React.useState<Value>(data);
+	const [values, setValues] = React.useState<Value>({ ...data });
 
 	React.useEffect(() => {
 		formRef.current = true;
@@ -27,9 +27,5 @@ export const useForm = (data: Value) => {
 		}
 	};
 
-	const updateValues = React.useCallback((value: Value) => {
-		setValues(value);
-	}, []);
-
-	return { values, updateValues, handleChange };
+	return { values, handleChange };
 };

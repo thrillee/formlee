@@ -30,9 +30,8 @@ const RenderInput: React.FC<FormProp> = ({
 
 	return (
 		<>
-			{formData.fields.map((data) => {
+			{formData.fields.map((data, key) => {
 				if (
-					values &&
 					data.dependent &&
 					dependenciesIsnotValid(
 						values[data.dependent.fieldName],
@@ -42,7 +41,7 @@ const RenderInput: React.FC<FormProp> = ({
 					return null;
 				}
 				return getInputTemplate({
-					key: data.name,
+					key,
 					onChange: handleChange,
 					value: data.notEditable ? data.defaultValue : values[data.name],
 					error: errors[data.name],
