@@ -34,7 +34,7 @@ const RenderInput: React.FC<FormProp> = ({
 				if (
 					data.dependent &&
 					dependenciesIsnotValid(
-						values[data.dependent.fieldName],
+						values[data.dependent.fieldName] ?? '',
 						data.dependent.value
 					)
 				) {
