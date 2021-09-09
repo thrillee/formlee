@@ -12,6 +12,10 @@ export const useForm = (data: Value) => {
 		};
 	}, []);
 
+	const updateValues = React.useCallback((value: Value) => {
+		setValues({ ...value });
+	}, []);
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (formRef.current) {
 			const newState = { ...values };
@@ -27,5 +31,5 @@ export const useForm = (data: Value) => {
 		}
 	};
 
-	return { values, handleChange };
+	return { values, updateValues, handleChange };
 };
