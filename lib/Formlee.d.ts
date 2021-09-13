@@ -5,6 +5,7 @@ interface Props {
     isSubmitted: boolean;
     defaultValues: Value;
     onSubmit: (result: any) => void;
+    isEdit?: true;
     inputTemplates: InputTemplateProps;
     setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }
