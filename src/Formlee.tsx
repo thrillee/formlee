@@ -10,11 +10,13 @@ interface Props {
 	isSubmitted: boolean;
 	defaultValues: Value;
 	onSubmit: (result: any) => void;
+	isEdit?: true;
 	inputTemplates: InputTemplateProps;
 	setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Formlee: React.FC<Props> = ({
+	isEdit,
 	formData,
 	onSubmit,
 	isSubmitted,
@@ -22,7 +24,7 @@ export const Formlee: React.FC<Props> = ({
 	setIsSubmitted,
 	inputTemplates,
 }) => {
-	const { values, errors, validate, handleChange } = useForm(
+	const { values, errors, validate, updateValues, handleChange } = useForm(
 		formData.fields,
 		defaultValues
 	);
@@ -32,11 +34,11 @@ export const Formlee: React.FC<Props> = ({
 		else setIsSubmitted(false);
 	}, [onSubmit, values, validate, setIsSubmitted]);
 
-	// React.useEffect(() => {
-	// 	if (defaultValues) {
-	// 		updateValues(defaultValues);
-	// 	}
-	// }, [defaultValues]);
+	React.useEffect(() => {
+		if (defaultValues && isEdit) {
+			updateValues(defaultValues);
+		}
+	}, [defaultValues, isEdit]);
 
 	React.useEffect(() => {
 		if (isSubmitted) {
