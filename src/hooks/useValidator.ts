@@ -28,9 +28,13 @@ export const useValidator = (fields: FormField[], values: any) => {
 		};
 	}, []);
 
-	React.useEffect(() => {
-		validate();
-	}, [values]);
+	const resetError = React.useCallback((field: string) => {
+		if (formRef.current) {
+			const newError = { ...errors };
+			newError[field] = undefined;
+			setError(newError);
+		}
+	}, []);
 
 	const validate = React.useCallback(() => {
 		if (formRef.current) {
@@ -68,7 +72,7 @@ export const useValidator = (fields: FormField[], values: any) => {
 		}
 		return undefined;
 	}, [values, errors, fields]);
-	return { errors, validate };
+	return { errors, resetError, validate };
 };
 
 const createErrorDefault = (fields: FormField[]) => {

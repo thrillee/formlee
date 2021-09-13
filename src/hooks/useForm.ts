@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { Value } from '../types/formConfigs';
+import { useValidator } from '.';
+import { FormField, Value } from '../types/formConfigs';
 
-export const useForm = (data: Value) => {
+export const useForm = (fields: FormField[], data: Value) => {
 	const formRef: React.MutableRefObject<boolean | undefined> = React.useRef();
 	const [values, setValues] = React.useState<Value>({ ...data });
+
+	const { errors, validate, resetError } = useValidator(fields, values);
 
 	React.useEffect(() => {
 		formRef.current = true;
@@ -24,6 +27,8 @@ export const useForm = (data: Value) => {
 			const value = e.target.value;
 			const name = e.target.name;
 
+			resetError(name);
+
 			newState[name] =
 				targetType === 'checkbox' ? (newState[name] = e.target.checked) : value;
 
@@ -31,5 +36,5 @@ export const useForm = (data: Value) => {
 		}
 	};
 
-	return { values, updateValues, handleChange };
+	return { values, errors, validate, updateValues, handleChange };
 };

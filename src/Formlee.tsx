@@ -3,7 +3,6 @@ import * as React from 'react';
 import RenderInput from './templates/RenderInput';
 
 import { useForm } from './hooks/useForm';
-import { useValidator } from './hooks/useValidator';
 import { FormData, InputTemplateProps, Value } from './types/formConfigs';
 
 interface Props {
@@ -23,8 +22,10 @@ export const Formlee: React.FC<Props> = ({
 	setIsSubmitted,
 	inputTemplates,
 }) => {
-	const { values, updateValues, handleChange } = useForm(defaultValues);
-	const { errors, validate } = useValidator(formData.fields, values);
+	const { values, errors, validate, updateValues, handleChange } = useForm(
+		formData.fields,
+		defaultValues
+	);
 
 	const handleSubmit = React.useCallback(() => {
 		if (validate()) onSubmit({ ...values });
