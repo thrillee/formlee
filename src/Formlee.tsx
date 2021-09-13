@@ -22,7 +22,7 @@ export const Formlee: React.FC<Props> = ({
 	setIsSubmitted,
 	inputTemplates,
 }) => {
-	const { values, errors, validate, updateValues, handleChange } = useForm(
+	const { values, errors, validate, handleChange } = useForm(
 		formData.fields,
 		defaultValues
 	);
@@ -32,11 +32,11 @@ export const Formlee: React.FC<Props> = ({
 		else setIsSubmitted(false);
 	}, [onSubmit, values, validate, setIsSubmitted]);
 
-	React.useEffect(() => {
-		if (defaultValues) {
-			updateValues(defaultValues);
-		}
-	}, [defaultValues]);
+	// React.useEffect(() => {
+	// 	if (defaultValues) {
+	// 		updateValues(defaultValues);
+	// 	}
+	// }, [defaultValues]);
 
 	React.useEffect(() => {
 		if (isSubmitted) {
