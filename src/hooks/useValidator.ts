@@ -28,13 +28,16 @@ export const useValidator = (fields: FormField[], values: any) => {
 		};
 	}, []);
 
-	const resetError = React.useCallback((field: string) => {
-		if (formRef.current) {
-			const newError = { ...errors };
-			newError[field] = undefined;
-			setError(newError);
-		}
-	}, []);
+	const resetError = React.useCallback(
+		(field: string) => {
+			if (formRef.current) {
+				const newError = { ...errors };
+				newError[field] = undefined;
+				setError(newError);
+			}
+		},
+		[errors]
+	);
 
 	const validate = React.useCallback(() => {
 		if (formRef.current) {
