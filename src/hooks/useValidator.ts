@@ -28,7 +28,11 @@ export const useValidator = (fields: FormField[], values: any) => {
 		};
 	}, []);
 
-	const validate = () => {
+	React.useEffect(() => {
+		validate();
+	}, [values]);
+
+	const validate = React.useCallback(() => {
 		if (formRef.current) {
 			const constraintKey = Object.keys(constraintData);
 			let isValid = true;
@@ -63,7 +67,7 @@ export const useValidator = (fields: FormField[], values: any) => {
 			return isValid;
 		}
 		return undefined;
-	};
+	}, [values, errors, fields]);
 	return { errors, validate };
 };
 
